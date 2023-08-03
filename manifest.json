@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Anon X",
+  "description": "Become Anondraw X User",
+  "version": "1.0",
+  "web_accessible_resources": [
+    "dist/repository.js"
+  ],
+  "action": {
+    "default_popup": "dist/popup.html",
+    "default_icon": "dist/icon.png"
+  }
+}

@@ -1,0 +1,1 @@
+(()=>{"use strict";!function(){const e=document.getElementById("addCoordDiv"),t=document.createElement("button");t.innerText="Add coord",null==e||e.appendChild(t)}()})();
