@@ -1,4 +1,9 @@
-import { getFromLocalStorage, saveToLocalStorage } from "../src/repository";
-import { createAddButton } from "../src/ui";
+import { onAddCoordButtonClick, updateCoordsList } from "./functions";
 
-createAddButton();
+updateCoordsList();
+
+const addCoordButton = document.getElementById(
+  "addCoordButton"
+) as HTMLButtonElement;
+
+addCoordButton?.addEventListener("click", onAddCoordButtonClick);
