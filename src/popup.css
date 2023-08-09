@@ -23,10 +23,7 @@ ul {
 li {
   display: flex;
   justify-content: center;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: 10px 5px 10px 5px;
   border-bottom: 1px solid #7084b5;
   border-left: 1px solid #7084b5;
   border-right: 1px solid #7084b5;
