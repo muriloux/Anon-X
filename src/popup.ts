@@ -1,8 +1,4 @@
-import {
-  onAddCoordButtonClick,
-  toggleCoordsList,
-  updateCoordsList,
-} from "./functions";
+import { addCoord, toggleCoordsList, updateCoordsList } from "./functions";
 
 import "./popup.css";
 
@@ -19,13 +15,13 @@ const toggleCoordsButton = document.getElementById(
 //updateCoordsList();
 
 addCoordButton?.addEventListener("click", () => {
-  onAddCoordButtonClick();
+  addCoord();
   toggleCoordsList(true);
 });
 addCoordInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     e.preventDefault();
-    onAddCoordButtonClick();
+    addCoord();
     toggleCoordsList(true);
   }
 });

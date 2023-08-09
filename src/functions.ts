@@ -15,7 +15,7 @@ function getCurrentTabUrl(callback: Function) {
   });
 }
 
-export function onAddCoordButtonClick() {
+export function addCoord() {
   const coordName = coordInput.value;
 
   getCurrentTabUrl((url: URL) => {
