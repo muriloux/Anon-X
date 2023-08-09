@@ -1,24 +1,59 @@
+html{
+  background-color: #1a367d;
+}
+
 body {
   font-family: Arial, sans-serif;
+  color: aliceblue;
   max-width: 300px;
   margin: 10px;
 }
 
-h1 {
+h2 {
   text-align: center;
 }
 
 ul {
   list-style: none;
+  margin: 0;
   padding: 0;
 }
 
 li {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
+  justify-content: center;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom: 1px solid cadetblue;
+  border-left: 1px solid cadetblue;
+  border-right: 1px solid cadetblue;
+  &&:first-child{
+    border-top: 1px solid cadetblue;
+  }
 }
 
-button {
-  margin-left: 10px;
+a {
+  text-decoration: none;
+  color: aliceblue;
+  font-weight: bold;
+}
+
+#addCoordDiv{
+  display: flex;
+  flex-direction: row;
+}
+
+#toggleCoordsButton{
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  background-color: cadetblue;
+  border: none;
+  cursor: pointer;
+}
+
+#chevronIcon{
+  color: aliceblue;
 }

@@ -6,5 +6,9 @@
   "action": {
     "default_popup": "dist/popup.html",
     "default_icon": "dist/icon.png"
-  }
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ]
 }

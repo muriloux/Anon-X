@@ -10,7 +10,5 @@ export function saveToLocalStorage(key: localStorageKey, value: {}) {
 
 export function getFromLocalStorage(key: localStorageKey) {
   const data = localStorage.getItem(key);
-  //console.log("Got from LocalStorage");
   return data ? (JSON.parse(data) as {}[]) : [];
-  // data ? console.log(JSON.parse(data)) : console.log("");
 }
