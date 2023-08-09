@@ -1,4 +1,8 @@
-import { getFromLocalStorage, saveToLocalStorage } from "./repository";
+import {
+  getFromLocalStorage,
+  addItemToLocalStorage,
+  addItemsToLocalStorage,
+} from "./repository";
 
 let isListVisible = false;
 
@@ -22,11 +26,24 @@ export function addCoord() {
     const hash = url.hash;
     const coord = hash.replace(/#\w+,/i, "");
 
-    saveToLocalStorage("coords", { [coordName || coord]: coord });
+    addItemToLocalStorage("coords", { [coordName || coord]: coord });
     updateCoordsList();
   });
 
   coordInput.value = "";
+}
+
+function deleteCoord(coordKey: string) {
+  const currentCoordsData: {}[] = getFromLocalStorage("coords");
+
+  // Filter out the item with the specified key
+  const updatedCoordsData = currentCoordsData.filter((coord) => {
+    const key = Object.keys(coord)[0];
+    return key !== coordKey;
+  });
+
+  addItemsToLocalStorage("coords", updatedCoordsData);
+  updateCoordsList(); // Update the list after deleting
 }
 
 export function updateCoordsList() {
@@ -35,7 +52,7 @@ export function updateCoordsList() {
   getCurrentTabUrl((url: URL) => {
     const hash = url.hash;
     const href = url.href;
-    const cleanHash = hash.replace(/,(\d+,\d+)/, "");
+    const cleanHash = hash.replace(/,-?\d+/g, "");
 
     coordsList.innerHTML = "";
     currentCoordsData.forEach((coord) => {
@@ -45,16 +62,24 @@ export function updateCoordsList() {
 
       const listItem = document.createElement("li");
       const anchor = document.createElement("a");
+      const deleteButton = document.createElement("button");
 
       anchor.innerText = coordKey;
       anchor.href = newURL;
+      deleteButton.innerText = "✕";
+      deleteButton.className = "deleteButton";
 
       anchor.addEventListener("click", (event) => {
         event.preventDefault();
         chrome.tabs.update({ url: newURL });
       });
 
+      deleteButton.addEventListener("click", () => {
+        deleteCoord(coordKey); // Call the deleteCoord function on button click
+      });
+
       listItem.appendChild(anchor);
+      listItem.appendChild(deleteButton);
       coordsList?.appendChild(listItem);
     });
   });

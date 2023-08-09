@@ -1,11 +1,14 @@
 type localStorageKey = "coords";
 
-export function saveToLocalStorage(key: localStorageKey, value: {}) {
+export function addItemToLocalStorage(key: localStorageKey, value: {}) {
   const currentCoordsData = getFromLocalStorage(key);
-  const newCoords: {}[] = currentCoordsData;
-  newCoords.push(value);
+  currentCoordsData.push(value);
 
-  localStorage.setItem(key, JSON.stringify(newCoords));
+  localStorage.setItem(key, JSON.stringify(currentCoordsData));
+}
+
+export function addItemsToLocalStorage(key: localStorageKey, items: {}[]) {
+  localStorage.setItem(key, JSON.stringify(items));
 }
 
 export function getFromLocalStorage(key: localStorageKey) {

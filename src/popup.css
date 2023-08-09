@@ -22,7 +22,7 @@ ul {
 
 li {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   padding: 10px 5px 10px 5px;
   border-bottom: 1px solid #7084b5;
   border-left: 1px solid #7084b5;
@@ -36,6 +36,17 @@ a {
   text-decoration: none;
   color: #FFFF;
   font-weight: bold;
+}
+
+.deleteButton {
+  display: flex;
+  justify-content: center;
+  color: #DFE3EE;
+  background-color: #ca1717;
+  border: none;
+  height: 1rem;
+  width: 1rem;
+  cursor: pointer;
 }
 
 #addCoordDiv{
