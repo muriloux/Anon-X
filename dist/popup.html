@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="popup.css" />
+    <link rel="stylesheet" type="text/css" href="popup.min.css" />
+    <meta charset="UTF-8" />
   </head>
-  <h2>Anon Gadget</h2>
+  <h2>Anon-X</h2>
   <body>
     <div id="addCoordDiv">
       <input id="addCoordInput" type="text" placeholder="New coordinate name" />
       <button id="addCoordButton">Add</button>
     </div>
     <div id="coordsDiv">
-      <h3>Coordinates</h3>
       <button id="toggleCoordsButton">
-        <span id="chevronIcon">&#9660;</span>
+        Coordinates<span id="chevronIcon">▼</span>
       </button>
       <ul id="coordsList">
         <!-- coordinates will be dynamically added here -->
       </ul>
     </div>
 
-    <script src="bundle.js"></script>
+    <script src="bundle.min.js"></script>
   </body>
 </html>

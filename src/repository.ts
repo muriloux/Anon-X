@@ -1,7 +1,7 @@
 type localStorageKey = "coords";
 
 export function saveToLocalStorage(key: localStorageKey, value: {}) {
-  const currentCoordsData = getFromLocalStorage("coords");
+  const currentCoordsData = getFromLocalStorage(key);
   const newCoords: {}[] = currentCoordsData;
   newCoords.push(value);
 

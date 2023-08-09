@@ -1,5 +1,11 @@
 import { getFromLocalStorage, saveToLocalStorage } from "./repository";
 
+let isListVisible = false;
+
+const coordInput = document.getElementById("addCoordInput") as HTMLInputElement;
+const coordsList = document.getElementById("coordsList") as HTMLUListElement;
+const chevronIcon = document.getElementById("chevronIcon") as HTMLSpanElement;
+
 function getCurrentTabUrl(callback: Function) {
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     if (tabs && tabs[0] && tabs[0].url) {
@@ -10,9 +16,6 @@ function getCurrentTabUrl(callback: Function) {
 }
 
 export function onAddCoordButtonClick() {
-  const coordInput = document.getElementById(
-    "addCoordInput"
-  ) as HTMLInputElement;
   const coordName = coordInput.value;
 
   getCurrentTabUrl((url: URL) => {
@@ -27,7 +30,6 @@ export function onAddCoordButtonClick() {
 }
 
 export function updateCoordsList() {
-  const coordsList = document.getElementById("coordsList") as HTMLUListElement;
   const currentCoordsData = getFromLocalStorage("coords");
 
   getCurrentTabUrl((url: URL) => {
@@ -56,4 +58,20 @@ export function updateCoordsList() {
       coordsList?.appendChild(listItem);
     });
   });
+}
+
+export function toggleCoordsList(unfold?: boolean) {
+  if (unfold && isListVisible) {
+    return;
+  }
+  if (!isListVisible) {
+    coordsList.style.display = "block";
+    updateCoordsList();
+    chevronIcon.textContent = "▲";
+  } else {
+    coordsList.style.display = "none";
+    chevronIcon.textContent = "▼";
+  }
+
+  isListVisible = !isListVisible;
 }
