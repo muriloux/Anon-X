@@ -64,18 +64,19 @@ export function updateCoordsList() {
       const anchor = document.createElement("a");
       const deleteButton = document.createElement("button");
 
+      listItem.className = "coordsListItem";
       anchor.innerText = coordKey;
       anchor.href = newURL;
       deleteButton.innerText = "✕";
       deleteButton.className = "deleteButton";
 
-      anchor.addEventListener("click", (event) => {
+      listItem.addEventListener("click", (event) => {
         event.preventDefault();
         chrome.tabs.update({ url: newURL });
       });
 
       deleteButton.addEventListener("click", () => {
-        deleteCoord(coordKey); // Call the deleteCoord function on button click
+        deleteCoord(coordKey);
       });
 
       listItem.appendChild(anchor);
