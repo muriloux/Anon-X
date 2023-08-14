@@ -4,8 +4,8 @@
   "description": "Become Anondraw X User",
   "version": "1.0",
   "action": {
-    "default_popup": "dist/popup.html",
-    "default_icon": "dist/icon.png"
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
   },
   "permissions": [
     "activeTab",
@@ -14,7 +14,7 @@
   "content_scripts": [
     {
       "matches": ["https://www.anondraw.com/*", "https://anondraw.com/*"],
-      "js": ["dist/bundle.min.js"]
+      "js": ["bundle.min.js"]
     }
   ]
 }
